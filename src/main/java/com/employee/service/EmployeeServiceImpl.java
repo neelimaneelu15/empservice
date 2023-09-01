@@ -25,7 +25,11 @@ public class EmployeeServiceImpl implements EmployeeService{
 	@Override
 	public Employee getEmployeeById(Long employeeId) throws Exception {
 		Optional<Employee> e1=empRepository.findById(employeeId);
-		return e1.get();
+		if(e1.isPresent()) {
+			return e1.get();
+		} else {
+			throw new Exception();
+		}
 	}
 
 	@Override
