@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.employee.entity.Employee;
 import com.employee.repository.EmployeeRepository;
 
-import com.employee.service.EmployeeService;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 	
@@ -28,7 +28,6 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 	@Override
 	public Employee getEmployeeById(Long employeeId) throws Exception {
-		// TODO Auto-generated method stub
 		return empRepository.findById(employeeId).get();
 	}
 

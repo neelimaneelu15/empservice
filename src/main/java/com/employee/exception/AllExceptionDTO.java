@@ -12,8 +12,6 @@ public class AllExceptionDTO {
 
         super();
 
-        // TODO Auto-generated constructor stub
-
     }
 
     public AllExceptionDTO(String msg, String userInput, String dateAndTime) {
