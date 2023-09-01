@@ -54,7 +54,7 @@ public class EmployeeController {
     @DeleteMapping("/delete/{employeeId}")
     public ResponseEntity<String> deleteEmployee(@PathVariable Long employeeId) {
         try {
-            String deletedEmployee = empService.deleteEmployee(employeeId);
+            empService.deleteEmployee(employeeId);
             String responseMsg = "deleted the employee selected";
             return new ResponseEntity<String>(responseMsg, HttpStatus.OK);
         } catch (Exception e) {
@@ -79,14 +79,11 @@ public class EmployeeController {
  
 
     @GetMapping("/employees")
-    public List<Employee> getAllEmployees() {
-        try { 
-            List<Employee> allExtractedEmployees = empService.getAllEmployees();
-            return allExtractedEmployees;
-        }catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
+    public List<Employee> getAllEmployees() throws Exception {
+        
+          return empService.getAllEmployees();
+          
+        
 }
 
 }

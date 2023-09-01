@@ -20,7 +20,7 @@ public class CommonExceptionHandler {
         AllExceptionDTO dto = new AllExceptionDTO();
 
         dto.setMsg(e.getLocalizedMessage());
-        dto.setUserInput(e.getLocalizedMessage().toString());
+        dto.setUserInput(e.getLocalizedMessage());
         dto.setDateAndTime(LocalDateTime.now().toString());
 
         return new ResponseEntity<AllExceptionDTO>(dto,HttpStatus.BAD_REQUEST);

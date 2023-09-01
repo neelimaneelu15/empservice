@@ -1,6 +1,7 @@
 package com.employee.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,17 +19,13 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 	@Override
 	public Employee addEmployee(Employee employee) throws Exception {
-		Employee savedEmployee = empRepository.save(employee);
-		if(savedEmployee !=null) {
-			return savedEmployee;
-		}
-		else
-		return null;
+		return empRepository.save(employee);
 	}
 
 	@Override
 	public Employee getEmployeeById(Long employeeId) throws Exception {
-		return empRepository.findById(employeeId).get();
+		Optional<Employee> e1=empRepository.findById(employeeId);
+		return e1.get();
 	}
 
 	@Override
@@ -39,14 +36,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 	@Override
 	public Employee updateEmployee(Employee employee) throws Exception {
-		Employee updatedEmployee = empRepository.save(employee);
-		return updatedEmployee;
+		return empRepository.save(employee);
 	}
 
 	@Override
 	public List<Employee> getAllEmployees() throws Exception {
-		List<Employee> allEmployees = empRepository.findAll();
-		return allEmployees;
+		return empRepository.findAll();
 	}
 	
 	
